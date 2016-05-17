@@ -2,7 +2,7 @@
 	<head>
 		<title>注册</title>
 	</head>
-	<body>
+	<body style="background-image:url(注册背景.jpg);background-position:top center; background-repeat:no-repeat">
 		<center>
 		<h1>LibrarySo注册</h1>
 		<form method = "post" action = "save_register.php">

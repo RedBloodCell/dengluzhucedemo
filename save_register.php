@@ -18,8 +18,8 @@
 	$pass      = $_POST["password"];
 	
 	$sql = "INSERT INTO userinfo(Tname, password, number, phone, Uname) VALUES ('$tname','$pass',$user_num,'$phone_num','$uname')";
-	$dbh -> query("SET NAMES 'utf8'");    //数据库写入注册信息
-	$flag = $dbh -> query($sql);
+	$dbh -> query("SET NAMES 'utf8'");    //中文转码
+	$flag = $dbh -> query($sql);		//数据库写入数据
 	if($flag)
 		echo "恭喜你，注册成功！";
 	else

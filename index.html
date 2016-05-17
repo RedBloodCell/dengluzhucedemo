@@ -12,6 +12,9 @@
 			<label for="password">密  码:</label>
 			<input type="password" name="password" id="password" value=""/>
 			<br>
+			验证码：<input type="text" name="number"/>
+			<img style="cursor:pointer" src="Verification code generation.php" onclick="this.src=this.src+'?' + Math.random();" />
+			<br>
 			<input type="submit" name="登录" id="login" value="登录"/>
 			<a href="register.php"><input type="button" name="register" id="register" value="注册"></input></a>
 		</form>

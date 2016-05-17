@@ -17,12 +17,22 @@
 	$phone_num = $_POST["phonenum"];
 	$pass      = $_POST["password"];
 	
-	$sql = "INSERT INTO userinfo(Tname, password, number, phone, Uname) VALUES ('$tname','$pass',$user_num,'$phone_num','$uname')";
-	$dbh -> query("SET NAMES 'utf8'");    //中文转码
-	$flag = $dbh -> query($sql);		//数据库写入数据
-	if($flag)
-		echo "恭喜你，注册成功！";
+	session_start();							//验证验证码
+	$str_number = trim($_POST['yanzhengma']);
+	if(strtolower($_SESSION['rand']) != strtolower($str_number )) //忽略大小写
+	{
+		echo "验证码输入错误！请重新输入！";
+	}
 	else
-		echo "注册失败" . $e -> getMessage();
-	$dbh = null;
+	{
+		$sql = "INSERT INTO userinfo(Tname, password, number, phone, Uname) VALUES ('$tname','$pass',$user_num,'$phone_num','$uname')";
+		$dbh -> query("SET NAMES 'utf8'");    //中文转码
+		$flag = $dbh -> query($sql);		//数据库写入数据
+		if($flag)
+			echo "恭喜你，注册成功！";
+		else
+			echo "注册失败";
+	}
+	
+	$dbh = null;    //关闭数据库连接
 ?>

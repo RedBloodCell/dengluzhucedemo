@@ -21,6 +21,10 @@
 			<label for = "phonenum">手机号码:</label>
 			<input type = "text" name = "phonenum" id = "phonenum" placeholder = "请输入手机号码：13712341234"/>
 			<br>
+			<label for = "yanzhengma">　　　　　　验证码:</label>
+			<input type="text" name="yanzhengma"/>
+			<img style="cursor:pointer" src="Verification code generation.php" onclick="this.src=this.src+'?' + Math.random();" />
+			<br>
 			<input type = "submit" name = "gister" id = "gister" value = "注册"/>
 		</form>
 		</center>

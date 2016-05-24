@@ -11,15 +11,15 @@
 		echo 'Connection failed: ' . $e->getMessage();
 	}
 	
-	$user_num = $_POST['usernum'];		//获取登录信息
-    $pass     = $_POST['password'];
+	$number   = $_POST['usernum'];		//获取登录信息
+    $password = $_POST['password'];
 	
 	$sql="SELECT password 			
-		  FROM userinfo 
-		  WHERE number = $user_num";   //数据库查询
+		  FROM usersinformation 
+		  WHERE number = $number";   //数据库查询
 	foreach( $dbh -> query($sql) as $row) 
 	{
-         if($row[0] == $pass)          //验证登录密码
+         if($row[0] == $password)          //验证登录密码
 		 {
 			$dbh -> query("SET NAMES 'utf8'");
 			echo '欢迎你，登录成功！';

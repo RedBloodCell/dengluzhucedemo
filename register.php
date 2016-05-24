@@ -18,6 +18,9 @@
 			<label for = "password">　　密码:</label>
 			<input type = "text" name = "password" id = "password" placeholder = "请输入你的密码"/>
 			<br>
+			<label for = "password">确认密码:</label>
+			<input type = "text" name = "cpassword" id = "cpassword" placeholder = "请再次输入你的密码，保证两次输入相同"/>
+			<br>
 			<label for = "phonenum">手机号码:</label>
 			<input type = "text" name = "phonenum" id = "phonenum" placeholder = "请输入手机号码：13712341234"/>
 			<br>

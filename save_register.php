@@ -11,11 +11,18 @@
 		echo 'Connection failed: ' . $e->getMessage();
 	}
 	
-	$uname     = $_POST["uname"];			//获取注册信息
-	$tname     = $_POST["tname"];
-	$user_num  = $_POST["num"];
-	$phone_num = $_POST["phonenum"];
-	$pass      = $_POST["password"];
+	$nicheng   = $_POST["uname"];     //注册信息获取
+	$name      = $_POST["tname"];
+	$number    = $_POST["num"];
+	$password  = $_POST["password"];
+	$phone     = $_POST["phonenum"];
+	$cpassword = $_POST["cpassword"];
+	
+	if($cpassword != $password)
+	{
+		echo "两次密码输入不一致，请重新输入！";
+		return;
+	}
 	
 	session_start();							//验证验证码
 	$str_number = trim($_POST['yanzhengma']);
@@ -25,7 +32,7 @@
 	}
 	else
 	{
-		$sql = "INSERT INTO userinfo(Tname, password, number, phone, Uname) VALUES ('$tname','$pass',$user_num,'$phone_num','$uname')";
+		$sql = "INSERT INTO usersinformation(nicheng, name, number, password, phone) VALUES ('$nicheng','$name',$number,'$password','$phone')";
 		$dbh -> query("SET NAMES 'utf8'");    //中文转码
 		$flag = $dbh -> query($sql);		//数据库写入数据
 		if($flag)

@@ -22,7 +22,8 @@
          if($row[0] == $password)          //验证登录密码
 		 {
 			$dbh -> query("SET NAMES 'utf8'");
-			echo '欢迎你，登录成功！';
+			//echo '欢迎你，登录成功！';
+			return register.php;
 		 }
 		else
 			echo '密码错误';
